@@ -13,7 +13,7 @@ app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("public"));
+app.use(express.static("./develop/public"));
 
 mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost/budget',
@@ -27,7 +27,7 @@ mongoose.connect(
   
 
 // routes
-app.use(require("./routes/api.js"));
+app.use(require("./develop/routes/api.js"));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
