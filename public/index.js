@@ -6,6 +6,7 @@ fetch("/api/transaction")
     return response.json();
   })
   .then(data => {
+    console.log(data)
     // save db data on global variable
     transactions = data;
 
@@ -135,6 +136,7 @@ function sendTransaction(isAdding) {
     }
   })
   .catch(err => {
+    console.log(err)
     // fetch failed, so save in indexed db
     saveRecord(transaction);
 
